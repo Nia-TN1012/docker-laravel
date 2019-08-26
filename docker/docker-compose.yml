@@ -80,6 +80,27 @@ services:
   #     # MinIOのデータファイル
   #     - minio-data:/data
 
+  # ElasticMQ
+  # elasticmq:
+  #   image: elasticmq
+  #   build: ./elasticmq/
+  #   volumes:
+  #     # ElasticMQの設定ファイル
+  #     - ./elasticmq/conf/custom.conf:/custom.conf:ro
+
+  # `php artisan queue:work`専用コンテナ
+  # queue-worker:
+  #   image: laravel-php-fpm:7
+  #   build: ./php-fpm/
+  #   depends_on:
+  #     - mysql
+  #     - redis
+  #   command: ["php", "artisan", "queue:work"]
+  #   restart: always
+  #   volumes:
+  #     # Laravelのソースファイル
+  #     - ../laravel:/var/www/html
+
 # ネットワークはデフォルトのものを使用します。
 #networks:
 #  default:
