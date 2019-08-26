@@ -82,11 +82,10 @@ services:
 
   # ElasticMQ
   # elasticmq:
-  #   image: elasticmq
-  #   build: ./elasticmq/
+  #   image: softwaremill/elasticmq
   #   volumes:
   #     # ElasticMQの設定ファイル
-  #     - ./elasticmq/conf/custom.conf:/custom.conf:ro
+  #     - ./elasticmq/conf/custom.conf://opt/elasticmq.conf:ro
 
   # `php artisan queue:work`専用コンテナ
   # queue-worker:
